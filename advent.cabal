@@ -15,8 +15,11 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Day1.Solution, Day3.Solution
-  build-depends:       base >= 4.7 && < 5, containers
+  exposed-modules:     Day1.Solution,
+                       Day2.Solution,
+                       Day3.Solution,
+                       Day4.Solution
+  build-depends:       base >= 4.7 && < 5, containers, bytestring, MissingH
   default-language:    Haskell2010
 
 executable advent-exe
