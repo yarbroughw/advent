@@ -1,4 +1,4 @@
-module Day4.Solution where
+module Day4 where
 
 import Data.ByteString.Char8 (pack, unpack)
 import Data.Hash.MD5
@@ -13,8 +13,8 @@ hashWithZeroes :: Int -> String -> Int
 hashWithZeroes numZeroes input = head $ filter (hasNumZeroes . hash . (key input)) [1..]
   where hasNumZeroes = all (== '0') . take numZeroes
 
-day4 :: IO ()
-day4 = do
+solution :: IO ()
+solution = do
   let input = "bgvyzdsv"
   print $ hashWithZeroes 5 input
   print $ hashWithZeroes 6 input
