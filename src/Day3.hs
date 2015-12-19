@@ -38,8 +38,8 @@ part2 directions = numDistinct houses
           santaHouses = travelBy even directions
           robotHouses = travelBy odd directions
 
-solution :: IO ()
-solution = do
-  directions <- (map readDirection) <$> readFile "input.txt"
+solution :: String -> IO ()
+solution input = do
+  let directions = (map readDirection) input
   print $ part1 directions
   print $ part2 directions

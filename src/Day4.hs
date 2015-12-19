@@ -13,8 +13,7 @@ hashWithZeroes :: Int -> String -> Int
 hashWithZeroes numZeroes input = head $ filter (hasNumZeroes . hash . (key input)) [1..]
   where hasNumZeroes = all (== '0') . take numZeroes
 
-solution :: IO ()
-solution = do
-  let input = "bgvyzdsv"
+solution :: String -> IO ()
+solution input = do
   print $ hashWithZeroes 5 input
   print $ hashWithZeroes 6 input

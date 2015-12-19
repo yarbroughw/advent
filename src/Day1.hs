@@ -1,6 +1,5 @@
 module Day1 where
 
-import Paths_advent
 import Data.List (findIndex, inits)
 
 -- slower than a foldr (does 2 passes over input), but more readable/declarative
@@ -20,8 +19,7 @@ hitBasement :: String -> Maybe Int
 hitBasement input = findIndex (< 0) trip
   where trip = map floorCount $ inits input
 
-solution :: IO ()
-solution = do
-  input <- readFile =<< getDataFileName "day1input.txt"
+solution :: String -> IO ()
+solution input = do
   print $ floorCount input  -- part 1
   print $ hitBasement input -- part 2

@@ -20,8 +20,8 @@ ribbonFeet (Box l w h) = wrap + bow
   where wrap = sum $ map (*2) $ take 2 $ sort [l,w,h]
         bow = l*w*h
 
-solution :: IO ()
-solution = do
-  boxes <- (map readBox . lines) <$> getContents
+solution :: String -> IO ()
+solution input = do
+  let boxes = (map readBox . lines) input
   print (sum $ map wrappingFeet boxes)
   print (sum $ map ribbonFeet boxes)
