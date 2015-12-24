@@ -26,6 +26,7 @@ library
 executable advent-exe
   hs-source-dirs:      app
   main-is:             Main.hs
+  other-modules:       Paths_advent
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , advent
