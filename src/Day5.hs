@@ -6,23 +6,23 @@ threeVowels :: String -> Bool
 threeVowels = (>= 3) . length . filter (`elem` "aeiouAEIOU")
 
 doubleLetter :: String -> Bool
-doubleLetter = not . null . filter ((>1) . length) . group
+doubleLetter = any ((>1) . length) . group
 
 noBadStrings :: String -> Bool
-noBadStrings input = and $ map (not . flip isInfixOf input) badstrings
+noBadStrings input = all (not . flip isInfixOf input) badstrings
   where badstrings = ["ab", "cd", "pq", "xy"]
 
 hasPalindromeTriplet :: String -> Bool
-hasPalindromeTriplet = or . map isPalindrome . triplets
+hasPalindromeTriplet = any isPalindrome . triplets
   where isPalindrome = (==) <*> reverse
-        triplets input = take ((length input)-3+1) $ map (take 3) $ tails input
+        triplets input = take (length input - 3 + 1) $ map (take 3) $ tails input
 
 repeatedPair :: String -> Bool
-repeatedPair = or . map repeatedPrefixPair . takeWhile ((>=4) . length) . tails
-  where repeatedPrefixPair input = (take 2 input) `isInfixOf` (drop 2 input)
+repeatedPair = any repeatedPrefixPair . takeWhile ((>=4) . length) . tails
+  where repeatedPrefixPair input = take 2 input `isInfixOf` drop 2 input
 
 applyRules :: [String -> Bool] -> String -> Bool
-applyRules rules string = and $ map ($ string) rules
+applyRules rules string = and $ sequence rules string
 
 isNice :: String -> Bool
 isNice = applyRules [threeVowels, doubleLetter, noBadStrings]

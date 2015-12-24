@@ -12,7 +12,7 @@ floorCount input = ups - downs
 floorCount2 :: String -> Int
 floorCount2 = foldr ((+) . parenvals) 0
   where parenvals '(' = 1
-        parenvals ')' = (-1)
+        parenvals ')' = -1
         parenvals _ = 0
 
 hitBasement :: String -> Maybe Int

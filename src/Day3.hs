@@ -19,7 +19,7 @@ travelFrom (x,y) d = case d of
   West  -> (x-1,y)
 
 travel :: [Direction] -> [House]
-travel directions = scanl travelFrom (0,0) directions
+travel = scanl travelFrom (0,0)
 
 travelBy :: (Int -> Bool) -> [Direction] -> [House]
 travelBy pred directions = travel $ filtered directions
@@ -40,6 +40,6 @@ part2 directions = numDistinct houses
 
 solution :: String -> IO ()
 solution input = do
-  let directions = (map readDirection) input
+  let directions = map readDirection input
   print $ part1 directions
   print $ part2 directions
