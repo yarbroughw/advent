@@ -23,7 +23,7 @@ runSolution s = do
   putStrLn "==============================================="
   putStrLn $ "Calculating solution(s) for " ++ name s ++ "... "
   input <- getData (dataFileName s)
-  solution s $ input
+  solution s input
 
 solutions :: [Solution]
 solutions =
@@ -35,4 +35,4 @@ solutions =
   ]
 
 main :: IO ()
-main = sequence_ $ map runSolution solutions
+main = mapM_ runSolution solutions
