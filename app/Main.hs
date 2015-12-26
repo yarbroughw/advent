@@ -8,6 +8,7 @@ import qualified Day2
 import qualified Day3
 import qualified Day4
 import qualified Day5
+import qualified Day6
 
 data Solution = Solution {
   name         :: String,
@@ -32,6 +33,7 @@ solutions =
   , Solution "Day 3" Day3.solution "day3input.txt"
   , Solution "Day 4" Day4.solution "day4input.txt"
   , Solution "Day 5" Day5.solution "day5input.txt"
+  , Solution "Day 6" Day6.solution "day6input.txt"
   ]
 
 main :: IO ()
