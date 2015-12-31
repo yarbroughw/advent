@@ -1,11 +1,10 @@
 module Day6 where
 
-import Control.Applicative ((<|>))
 import Text.Parsec (parse, ParseError)
 import Text.Parsec.String (Parser)
 import Text.Parsec.Char (oneOf, char, digit, satisfy, string)
 import Text.Parsec.Combinator (many1)
-import Text.Parsec.Prim (try)
+import Text.Parsec.Prim (try, (<|>))
 import Data.Set (size, difference, union, fromList, Set, empty)
 import Control.Monad.State
 
